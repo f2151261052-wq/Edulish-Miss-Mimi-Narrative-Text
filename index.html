@@ -1,0 +1,122 @@
+# PROMPT: "Cinderella's Magical Journey" - Narrative Text Adventure Game (English Grade VIII)
+
+## ROLE
+Act as a senior front-end developer, game designer, and instructional
+designer. Build a complete, ready-to-run educational ADVENTURE game for
+Grade VIII (SMP) English students in Indonesia (Kurikulum Merdeka).
+
+## GOAL
+Students learn **Narrative Text** and then play an adventure where they
+help the Fairy Godmother deliver magical flowers and glass slippers to
+characters in the story of "Cinderella". Learning comes first, then the
+adventure. Quiz questions are the "quests" the student must solve to
+move forward.
+
+## TECH STACK
+- Pure HTML, CSS, vanilla JavaScript (no framework, no backend)
+- Files: `index.html`, `style.css`, `script.js`, `README.md`
+- Responsive (mobile first), works offline, deployable on GitHub Pages
+- Google Fonts ("Fredoka", "Poppins"), emoji/inline SVG for characters
+  and items (no external image files needed)
+
+## STORY PREMISE
+The magic of the kingdom is fading because people forgot how stories
+are built. The Fairy Godmother asks the player (a young "Story Helper")
+to travel through 4 magical places, collect colorful flowers and glass
+slippers by answering quests, and deliver them to the characters so the
+story can end happily.
+
+## GAME FLOW (SCREENS)
+1. **Welcome Screen**: title, animated castle background, input for the
+   player's name, choose avatar (3 options: fairy wings, wizard hat,
+   little knight), "Begin the Journey" button.
+2. **Storybook Library (Materi Singkat)** - MUST be completed before the
+   adventure. A book-like interface with page-turn animation, 3 pages
+   and a progress bar. The "Enter the Kingdom" button stays LOCKED until
+   all 3 pages are opened:
+   - Page 1: Definition of Narrative Text
+   - Page 2: Generic Structure
+   - Page 3: Example Text "Cinderella" (color-coded by structure,
+     toggle "Highlight Structure" ON/OFF, tap bold words for the
+     Indonesian meaning)
+3. **Adventure Map**: a scrolling/zoomable illustrated map with a
+   winding path and 4 locked zones. The player's avatar moves along the
+   path to the next zone after each completed zone.
+4. **Zone Quests (Quiz)**: each zone has 3 multiple-choice questions.
+5. **Final Delivery Scene**: the player delivers the collected items and
+   sees the happy ending animation.
+6. **Result Screen**: score, badge, bouquet/slipper collection, review of
+   mistakes, "Play Again".
+
+## THE 4 ZONES (linked to generic structure)
+| Zone | Place | Structure | Item to collect | Quest focus |
+|------|-------|-----------|-----------------|-------------|
+| 1 | Rose Garden Cottage | Orientation | Colorful flowers (pink, yellow, blue) | Characters, setting, definition, social function |
+| 2 | Dark Whispering Forest | Complication | Glowing lanterns + purple flowers | The problem in the story, language features (past tense, action verbs, time connectives) |
+| 3 | Royal Palace Ballroom | Resolution | Glass slipper | How the problem is solved, sequence of events |
+| 4 | Happily-Ever-After Hill | Reorientation | Golden flower | Ending, moral value, whole-text comprehension |
+
+## QUEST & ITEM MECHANICS
+- Each zone = 3 questions (12 questions total), based ONLY on the
+  learning material. Store them in an array of objects:
+  `{ zone, question, options: [], answer, explanation }`
+- Correct answer: a colorful flower (or glass slipper in Zone 3)
+  flies into the player's basket with a sparkle animation, +10 points.
+- Wrong answer: one flower in the "Magic Meter" wilts (visual only,
+  never game over). The student sees a short explanation and may try
+  the question once more for half the points.
+- Streak bonus: 3 correct answers in a row = "Rainbow Bouquet" (+15).
+- Each zone ends with a **delivery mini-scene**: the player gives the
+  collected flowers/slippers to a character (Cinderella, the Fairy
+  Godmother, the Prince) with a short dialogue in simple English that
+  reinforces the material.
+- Zone unlocks only after the previous zone is completed with at least
+  2 of 3 correct answers (otherwise a "Retry zone" button appears).
+- Optional mini-game at Zone 3: drag and drop 4 sentence cards to
+  arrange the events of Cinderella in the correct order.
+
+## FINAL DELIVERY SCENE
+The player places the glass slipper on the prince's cushion, the slipper
+fits Cinderella, and a short animated ending plays with fireworks,
+falling petals, and the moral message: "Kindness and patience will always
+be rewarded." Total flowers collected determine the badge:
+- Story Beginner (< 60 points)
+- Story Explorer (60-100 points)
+- Narrative Master (> 100 points)
+
+## DESIGN & UX
+- Fairy-tale storybook style: pastel purple, pink, gold, sky blue,
+  green meadow; rounded cards; soft shadows.
+- Animated elements: floating sparkles, drifting petals, twinkling
+  stars, walking avatar, parallax clouds.
+- Character speech bubbles with short, friendly English dialogue
+  (with a small Indonesian hint button).
+- Smooth screen transitions, animated progress path, confetti/petal
+  rain on success.
+- Sound effects (correct, wrong, zone unlock, win) with the Web Audio
+  API, plus a mute button.
+- Accessible: ARIA labels, keyboard navigation, large readable text,
+  good contrast.
+- Save player name, high score, and collected items with `localStorage`.
+- Simple local leaderboard (top 5).
+
+## CODE QUALITY
+- Clean, modular, commented code (in English).
+- Separate data (content, questions, dialogues) from game logic.
+- No dependencies except Google Fonts (optional confetti CDN).
+- README.md must include: project description, learning objectives,
+  game flow, features, how to run locally, how to deploy to GitHub
+  Pages, screenshot placeholders, and credits.
+
+## LEARNING OBJECTIVES (put in README)
+Students are able to:
+1. Explain the definition and social function of narrative text.
+2. Identify its generic structure (orientation, complication,
+   resolution, reorientation).
+3. Identify its language features.
+4. Comprehend the content and moral value of "Cinderella".
+
+## OUTPUT FORMAT
+Provide the complete code for every file in separate code blocks, each
+labeled with its filename. The game must run immediately when
+`index.html` is opened in a browser.
